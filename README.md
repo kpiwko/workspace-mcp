@@ -63,9 +63,13 @@ claude mcp add --transport http --scope user workspace-mcp http://localhost:1715
 
 ## Configuring Tools
 
-The `WORKSPACE_MCP_TOOLS` environment variable controls which tools are exposed. The default set covers Gmail, Drive, Calendar, Docs, Sheets, Slides, and Forms.
+The `WORKSPACE_MCP_TOOLS` environment variable controls which tools are exposed. The default set is `gmail drive calendar docs sheets slides forms appscript` (`appscript` is the workspace-mcp tool name for Google Apps Script).
 
-The Apps Script tool is named `appscript`. To enable it alongside the defaults, add it to `WORKSPACE_MCP_TOOLS` in your `compose.yaml` or `.env`.
+Override in `compose.yaml` to restrict the set:
+```yaml
+environment:
+  WORKSPACE_MCP_TOOLS: "gmail drive calendar"
+```
 
 ## compose.yaml
 
