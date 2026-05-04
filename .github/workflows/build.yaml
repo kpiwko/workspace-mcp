@@ -48,6 +48,7 @@ jobs:
     needs: build
     runs-on: ubuntu-24.04
     permissions:
+      contents: read
       packages: write
 
     steps:
@@ -72,6 +73,7 @@ jobs:
         run: |
           IMAGE="ghcr.io/${{ github.repository_owner }}/workspace-mcp"
           while IFS= read -r tag; do
+            [ -z "$tag" ] && continue
             docker buildx imagetools create \
               -t "$tag" \
               "${IMAGE}:${{ github.sha }}-amd64" \
