@@ -8,7 +8,7 @@ LABEL name="workspace-mcp" \
 USER root
 
 RUN pip install --upgrade pip \
-    && pip install workspace-mcp
+    && pip install workspace-mcp==1.20.3
 
 ENV WORKSPACE_MCP_CREDENTIALS_DIR=/root/.config/workspace-mcp \
     WORKSPACE_MCP_TOOLS="gmail drive calendar docs sheets slides forms appscript" \
