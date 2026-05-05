@@ -14,7 +14,6 @@ ENV WORKSPACE_MCP_CREDENTIALS_DIR=/root/.config/workspace-mcp \
     WORKSPACE_MCP_TOOLS="gmail drive calendar docs sheets slides forms appscript" \
     WORKSPACE_MCP_PORT=8000 \
     WORKSPACE_MCP_HOST=0.0.0.0 \
-    WORKSPACE_EXTERNAL_URL=http://localhost:17150 \
     OAUTHLIB_INSECURE_TRANSPORT=1
 
 VOLUME ["/root/.config/workspace-mcp"]
