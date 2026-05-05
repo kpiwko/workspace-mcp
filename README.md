@@ -39,21 +39,19 @@ Published as `ghcr.io/kpiwko/workspace-mcp:latest`.
 
 ## First-Run Authentication
 
+Start the container and register the MCP with Claude Code:
+
 ```bash
 mkdir -p ~/.config/workspace-mcp
 podman compose up -d workspace-mcp
-open http://localhost:17150/
+claude mcp add --transport http --scope user workspace-mcp http://localhost:17150/mcp
 ```
 
-Complete the OAuth browser flow. The refresh token is saved automatically to `~/.config/workspace-mcp` and reused on subsequent container restarts.
+The first time you make a Google Workspace tool call (e.g. "list my recent emails"), workspace-mcp detects no credentials and returns an authorization URL. Click that URL to complete the Google OAuth flow in your browser. The refresh token is saved automatically to `~/.config/workspace-mcp` and reused on subsequent container restarts.
 
 ## Token Refresh
 
-If authentication fails, re-run the OAuth flow without stopping the container:
-
-```bash
-open http://localhost:17150/
-```
+If authentication fails, trigger the OAuth flow again by making any Google Workspace tool call — workspace-mcp will return a new authorization URL.
 
 ## MCP Registration
 
